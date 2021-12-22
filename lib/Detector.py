@@ -9,15 +9,15 @@ class Detector:
         self._repository = FileRepository('.previous')
 
     def tick(self):
-        fetched = requests.get(self._target_url).text
-        stored = self._repository.load()
+        now = requests.get(self._target_url).text
+        prev = self._repository.load()
 
-        self._repository.save(fetched)
+        self._repository.save(now)
 
-        if stored is None:
+        if prev is None:
             return
 
-        if fetched == stored:
+        if now == prev:
             return
 
-        self._callback()
+        self._callback(prev, now)

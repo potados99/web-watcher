@@ -1,7 +1,3 @@
 #!/bin/bash
 
-DIR="$(dirname "$(realpath "$0")")"
-cd "$DIR"
-
-source exports.sh
-python3.7 main.py --target 'https://tktapi.melon.com/api/product/schedule/list.json?prodId=206425&pocCode=SC0003&perfTypeCode=GN0001&sellTypeCode=ST0001&corpCodeNo=&v=1' --interval 0.2 --recipient '01029222661'
+python3.7 main.py --target 'https://tktapi.melon.com/api/product/schedule/list.json?prodId=206425&pocCode=SC0003&perfTypeCode=GN0001&sellTypeCode=ST0001&corpCodeNo=&v=1' --interval 0.2 --slack-webhook-url 'https://hooks.slack.com/services/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'
