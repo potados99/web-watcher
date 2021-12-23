@@ -58,6 +58,7 @@ if __name__ == '__main__':
     detector = Detector(target, lambda prev, now: slack_bot.send(format_message(prev, now)))
 
     heartbeat()
+    slack_bot.send('Watcher 기동!')
 
     schedule.every(1).hours.do(heartbeat)
     schedule.every(interval).seconds.do(detector.tick)
