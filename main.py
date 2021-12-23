@@ -35,6 +35,9 @@ def format_message(before_change: str, after_change: str) -> str:
         if seats_before != seats_after:
             changes.append(after[i])
 
+    if len(changes) == 0:
+        return 'realSeatCntlk 이외 변화 발생.'
+
     return '\n'.join(map(lambda x: f'{x[0]}일 공연 {x[1]}석 남음.', changes)) + '\n링크는 <https://m.ticket.melon.com/public/index.html#performance.index?prodId=206425|여기>.'
 
 
